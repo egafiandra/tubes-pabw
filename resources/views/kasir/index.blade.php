@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="text-center mb-4">
-    <h2 class="fw-bold">Kasir - Pemesanan Makanan</h2>
-    <p class="text-secondary">Pilih menu pesanan pelanggan di bawah ini:</p>
+    <h2 class="fw-bold text-white">Kasir - Pemesanan Makanan</h2>
+    <p class="text-light">Pilih menu pesanan pelanggan di bawah ini:</p>
 </div>
 
 <div class="row g-4">
@@ -22,9 +22,9 @@
 
     @foreach ($menus as $menu)
     <div class="col-md-4">
-        <div class="card text-center p-3">
-            <h5 class="fw-bold">{{ $menu['nama'] }}</h5>
-            <p>Rp {{ number_format($menu['harga'], 0, ',', '.') }}</p>
+        <div class="card text-center p-3 bg-dark border-light">
+            <h5 class="fw-bold text-white">{{ $menu['nama'] }}</h5>
+            <p class="text-white-50">Rp {{ number_format($menu['harga'], 0, ',', '.') }}</p>
             <button class="btn btn-custom">Tambahkan</button>
         </div>
     </div>

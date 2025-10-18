@@ -17,4 +17,5 @@ Route::get('/kasir', function () {
 
 Route::get('/pembayaran', function () {
     return view('pembayaran.index');
+
 });
