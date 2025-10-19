@@ -299,100 +299,104 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+    //===========
+    // NAVBAR MENU
+    //===========
 
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+    [
+        'type'         => 'navbar-notification',
+        'id'           => 'my-notification',      // ID unik untuk widget
+        'icon'         => 'fas fa-bell',
+        'url'          => 'notifications/history', // Halaman untuk melihat semua notifikasi
+        'topnav_right' => true,
+        'dropdown_mode'   => true,
+        'dropdown_flabel' => 'Lihat Semua Notifikasi',
+        'update_cfg'   => [
+            'url' => 'notifications/get', // URL untuk mengambil notifikasi baru via AJAX
+            'period' => 30, // Periksa setiap 30 detik
         ],
     ],
+    [
+        'type' => 'fullscreen-widget',
+        'topnav_right' => true,
+    ],
+
+    //============
+    // SIDEBAR MENU
+    //============
+
+    [
+        'text'        => 'Dashboard',
+        'url'         => 'admin/dashboard',
+        'icon'        => 'fas fa-fw fa-tachometer-alt',
+    ],
+
+    // --- PEMISAH BAGIAN OPERASIONAL ---
+    ['header' => 'OPERASIONAL UTAMA'],
+    [
+        'text'    => 'Pemesanan Makanan',
+        'icon'    => 'fas fa-fw fa-utensils',
+        'url'  => 'admin/orders',
+    ],
+    [
+        'text'    => 'Reservasi Tempat',
+        'icon'    => 'fas fa-fw fa-calendar-check',
+        'url'  => 'admin/resevations',
+    ],
+
+    // --- PEMISAH BAGIAN MASTER DATA ---
+    ['header' => 'MASTER DATA'],
+    [
+        'text' => 'Daftar Menu',
+        'url'  => 'admin/menus',
+        'icon' => 'fas fa-fw fa-book-open',
+    ],
+    [
+        'text' => 'Manajemen Meja',
+        'url'  => 'admin/tables',
+        'icon' => 'fas fa-fw fa-chair',
+    ],
+    [
+        'text' => 'Data Pelanggan',
+        'url'  => 'admin/customers',
+        'icon' => 'fas fa-fw fa-address-book',
+    ],
+
+    // --- PEMISAH BAGIAN LAINNYA ---
+    ['header' => 'LAINNYA'],
+    [
+        'text' => 'Laporan',
+        'icon' => 'fas fa-fw fa-chart-line',
+        'url'  => 'admin/feedback',
+    ],
+    [
+        'text' => 'Feedback',
+        'url'  => 'admin/feedback',
+        'icon' => 'fas fa-fw fa-comments',
+    ],
+    [
+        'text' => 'Notifikasi',
+        'url'  => 'admin/notifications',
+        'icon' => 'fas fa-fw fa-bell',
+    ],
+
+    // --- PEMISAH BAGIAN PENGATURAN AKUN ---
+    ['header' => 'PENGATURAN AKUN'],
+    [
+        'text' => 'Profil Saya',
+        'url'  => 'admin/profile',
+        'icon' => 'fas fa-fw fa-user-cog',
+    ],
+
+    // --- Tombol Logout diletakkan paling bawah ---
+    [
+        'text'   => 'Logout',
+        'route'  => 'logout', // Menggunakan route name 'logout' yang biasa dibuat Laravel
+        'icon'   => 'fas fa-fw fa-sign-out-alt text-danger',
+        'method' => 'POST', // Penting untuk keamanan
+    ],
+],
+
 
     /*
     |--------------------------------------------------------------------------
