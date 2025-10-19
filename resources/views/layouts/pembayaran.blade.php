@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') | Pembayaran</title>
+    <title>@yield('title') | BoloFood</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         body {
-            background-color: #0d0d0d;
+            background-color: #121212;
             color: #fff;
-            font-family: 'Poppins', sans-serif;
-        }
-        .navbar {
-            background-color: #1a1a1a;
-        }
-        .nav-link, .navbar-brand {
-            color: #fff !important;
-        }
-        .nav-link:hover {
-            color: #ffb84d !important;
         }
         .card {
-            background-color: #1c1c1c;
-            border: none;
-            border-radius: 14px;
-            box-shadow: 0 6px 10px rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
         }
-        .btn-pay {
-            background-color: #ff9f43;
-            border: none;
-            color: #121212;
-            font-weight: 600;
-        }
-        .btn-pay:hover {
-            background-color: #ffa94d;
+        .form-select, .form-control {
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg px-4">
-        <a class="navbar-brand fw-bold text-warning" href="#">Pembayaran</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon text-light"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="{{ url('/kasir') }}" class="nav-link">Kasir</a></li>
-                <li class="nav-item"><a href="{{ url('/pembayaran') }}" class="nav-link">Pembayaran</a></li>
-            </ul>
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url('/') }}">🍢 BoloFood</a>
+            <span class="navbar-text text-secondary">Pembayaran</span>
         </div>
     </nav>
 
-    <div class="container py-4">
+    <main class="container mt-4">
         @yield('content')
-    </div>
+    </main>
+
+    <footer class="text-center text-secondary mt-5 mb-3">
+        <small>© 2025 The komar's — Pembayaran | Makanan Khas Jawa Tengah</small>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

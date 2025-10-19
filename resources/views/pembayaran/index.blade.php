@@ -3,47 +3,39 @@
 @section('title', 'Pembayaran')
 
 @section('content')
-<div class="text-center mb-4">
-    <h2 class="fw-bold">Pembayaran</h2>
-    <p class="text-secondary">Periksa kembali pesanan dan lakukan pembayaran</p>
-</div>
+<div class="container py-4">
 
-<div class="card p-4 mx-auto" style="max-width: 550px;">
-    <h5 class="mb-3 fw-semibold text-warning">Ringkasan Pesanan</h5>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item bg-transparent text-light d-flex justify-content-between">
-            <span>Sate Ayam</span><span>Rp 20.000</span>
-        </li>
-        <li class="list-group-item bg-transparent text-light d-flex justify-content-between">
-            <span>Tongseng Sapi</span><span>Rp 27.000</span>
-        </li>
-        <li class="list-group-item bg-transparent text-light d-flex justify-content-between fw-bold">
-            <span>Total</span><span>Rp 47.000</span>
-        </li>
-    </ul>
+    {{-- Judul --}}
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-white">Halaman Pembayaran</h2>
+        <p class="text-light">Selesaikan proses pembayaran pelanggan di sini.</p>
+    </div>
 
-    <hr class="text-secondary my-4">
-
-    <form>
-        <div class="mb-3">
-            <label class="form-label text-warning">Metode Pembayaran</label>
-            <select class="form-select bg-dark text-light border-secondary">
-                <option>Tunai</option>
-                <option>QRIS</option>
-                <option>Transfer Bank</option>
-            </select>
+    {{-- Ringkasan Pembayaran --}}
+    <div class="card bg-dark text-white mb-4 shadow">
+        <div class="card-header border-bottom border-secondary">
+            <h5 class="mb-0 fw-bold">Detail Pembayaran</h5>
         </div>
+        <div class="card-body">
+            <p class="mb-1"><strong>Nama Pelanggan:</strong> Andi</p>
+            <p class="mb-1"><strong>Nomor Pesanan:</strong> #P001</p>
+            <p class="mb-3"><strong>Total Pembayaran:</strong> Rp 45.000</p>
 
-        <div class="mb-3">
-            <label class="form-label text-warning">Nominal Bayar</label>
-            <input type="number" class="form-control bg-dark text-light border-secondary" placeholder="Masukkan jumlah uang...">
+            <div class="mb-3">
+                <label for="metode" class="form-label text-light">Metode Pembayaran:</label>
+                <select id="metode" class="form-select bg-secondary text-white border-0">
+                    <option>Cash</option>
+                    <option>QRIS</option>
+                    <option>Transfer Bank</option>
+                </select>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-success px-5 py-2 fw-bold shadow">
+                    Konfirmasi Pembayaran
+                </button>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-pay w-100 mt-3">Bayar Sekarang</button>
-    </form>
-</div>
-
-<div class="text-center mt-4">
-    <a href="{{ url('/kasir') }}" class="text-decoration-none text-warning">← Kembali ke Kasir</a>
+    </div>
 </div>
 @endsection
