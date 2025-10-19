@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KasirController;
+use App\Http\Controllers\PembayaranController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,13 +15,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/kasir', function () {
-    return view('kasir.index');
-});
+// Halaman Kasir
+Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
 
-Route::get('/pembayaran', function () {
-    return view('pembayaran.index');
+// Halaman Pembayaran
+Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 
-});
+
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
